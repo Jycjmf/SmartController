@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+<variable
+    name="binding"
+    type="com.example.smartbuildingcontroller.viewModel.ConnectToServerViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.StatusFragment"
+        android:background="#FFEA97">
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg">
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/home_background"
+                        app:layout_constraintBottom_toBottomOf="@+id/card_temp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.05" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.95" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.0" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline122"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.19" />
+    <!--烟雾-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView_smoke"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        app:cardCornerRadius="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                        app:layout_constraintStart_toEndOf="@+id/guideline21"
+                        app:layout_constraintTop_toTopOf="@+id/guideline122">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_begin="41dp" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.09" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.36" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.73" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.28" />
+
+                            <com.bitvale.valueprogress.ValueProgress
+                                android:id="@+id/progress_smoke"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                                app:layout_constraintTop_toTopOf="@+id/textView5"
+                                app:progress_color="#07C69A"
+                                app:progress_max_value="100"
+                                app:progress_text_color="#07C69A"
+                                app:progress_value_symbol="%"
+                                app:progress_width="5dp" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:backgroundTint="#07C69A"
+                                app:cardCornerRadius="10dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                                app:layout_constraintTop_toTopOf="@+id/textView7">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/ic_smoke"
+                                    app:tint="@color/white" />
+                            </androidx.cardview.widget.CardView>
+
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="match_parent"
+                                android:layout_height="0.8dp"
+                                android:background="@color/bg"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline4" />
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="烟雾"
+                                android:textColor="@color/title"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline4"
+                                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.48000002" />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" /100 ppm "
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                                app:layout_constraintStart_toEndOf="@+id/textView7"
+                                app:layout_constraintTop_toTopOf="@+id/textView7"
+                                app:layout_constraintVertical_bias="0.61" />
+
+                            <TextView
+                                android:id="@+id/textView7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="@{binding.msgSmoke.toString()}"
+                                android:textColor="@color/black"
+                                android:textSize="25dp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="@+id/guideline22"
+                                app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+                            <TextView
+                                android:id="@+id/text_data_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{binding.msgDate.toString()}"
+                                android:textColor="@color/small_text"
+                                android:textSize="12dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/guideline22"
+                                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                                app:layout_constraintVertical_bias="0.24000001" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+<!--            温度-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_temp"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                        app:layout_constraintStart_toEndOf="@+id/guideline21"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView_smoke">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline41"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.29" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline61"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.09" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline81"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.36" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline71"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.68" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline221"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.28" />
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView_temperature"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:backgroundTint="#0191FE"
+                                app:cardCornerRadius="10dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView71"
+                                app:layout_constraintStart_toStartOf="@+id/guideline61"
+                                app:layout_constraintTop_toTopOf="@+id/textView71">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:src="@drawable/ic_temperature"
+                                    app:tint="@color/white" />
+                            </androidx.cardview.widget.CardView>
+
+                            <View
+                                android:id="@+id/view_temperature"
+                                android:layout_width="match_parent"
+                                android:layout_height="0.8dp"
+                                android:background="@color/bg"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline41" />
+
+                            <TextView
+                                android:id="@+id/textView31"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="温度"
+                                android:textColor="@color/title"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline41"
+                                app:layout_constraintStart_toStartOf="@+id/guideline61"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.48000002" />
+
+                            <TextView
+                                android:id="@+id/textView71"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="@{String.valueOf(binding.msgTemperature)}"
+                                android:textColor="@color/black"
+                                android:textSize="25dp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="@+id/guideline221"
+                                app:layout_constraintTop_toTopOf="@+id/guideline81" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text=" ℃"
+                                android:textColor="@color/black"
+                                android:textSize="25dp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toEndOf="@+id/textView71"
+                                app:layout_constraintTop_toTopOf="@+id/guideline81" />
+
+                            <TextView
+                                android:id="@+id/text_data_time_temperature"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{binding.msgFTemperature.toString()}"
+                                android:textColor="@color/small_text"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/guideline221"
+                                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                            <TextView
+                                android:id="@+id/text_data_time_temperature2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" ℉"
+                                android:textColor="@color/small_text"
+                                android:textSize="12dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/text_data_time_temperature"
+                                app:layout_constraintStart_toEndOf="@+id/text_data_time_temperature"
+                                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                            <Button
+                                android:id="@+id/button_temp_status"
+                                android:layout_width="80dp"
+                                android:layout_height="36dp"
+                                android:backgroundTint="@color/normal_back"
+                                android:text="@{binding.msgTemperatureStatus.toString()}"
+                                android:textColor="@color/normal_text"
+                                app:cornerRadius="20dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView71"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/guideline71"
+                                app:layout_constraintTop_toTopOf="@+id/textView71" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                    <!--湿度-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_humidity"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                        app:layout_constraintStart_toEndOf="@+id/guideline21"
+                        app:layout_constraintTop_toBottomOf="@+id/card_temp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline42"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.29" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline62"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.09" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline82"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.36" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline72"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.73" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline222"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.28" />
+
+                            <com.bitvale.valueprogress.ValueProgress
+                                android:id="@+id/progress_humidity"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView52"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/guideline72"
+
+                                app:layout_constraintTop_toTopOf="@+id/textView52"
+                                app:progress_color="#07C69A"
+                                app:progress_max_value="100"
+                                app:progress_text_color="#07C69A"
+                                app:progress_value_symbol="%"
+                                app:progress_width="5dp" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView2"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:backgroundTint="#a49cff"
+                                app:cardCornerRadius="10dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView72"
+                                app:layout_constraintStart_toStartOf="@+id/guideline62"
+                                app:layout_constraintTop_toTopOf="@+id/textView72">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:src="@drawable/ic_humidity"
+                                    app:tint="@color/white" />
+                            </androidx.cardview.widget.CardView>
+
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="match_parent"
+                                android:layout_height="0.8dp"
+                                android:background="@color/bg"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline42" />
+
+                            <TextView
+                                android:id="@+id/textView32"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="湿度"
+                                android:textColor="@color/title"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline42"
+                                app:layout_constraintStart_toStartOf="@+id/guideline62"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.48000002" />
+
+                            <TextView
+                                android:id="@+id/textView52"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" /100 % "
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView72"
+                                app:layout_constraintStart_toEndOf="@+id/textView72"
+                                app:layout_constraintTop_toTopOf="@+id/textView72"
+                                app:layout_constraintVertical_bias="0.61" />
+
+                            <TextView
+                                android:id="@+id/textView72"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="@{binding.msgHumidity.toString()}"
+                                android:textColor="@color/black"
+                                android:textSize="25dp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="@+id/guideline222"
+                                app:layout_constraintTop_toTopOf="@+id/guideline82" />
+
+                            <TextView
+                                android:id="@+id/text_data_time_humidity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{binding.msgDate}"
+                                android:textColor="@color/small_text"
+                                android:textSize="12dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/guideline222"
+                                app:layout_constraintTop_toBottomOf="@+id/textView52"
+                                app:layout_constraintVertical_bias="0.24000001" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_main_charts"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                        app:layout_constraintStart_toStartOf="@+id/guideline21"
+                        app:layout_constraintTop_toBottomOf="@+id/card_humidity">
+
+                        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+                            android:id="@+id/status_charts"
+                            android:layout_marginTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/text_home_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="数据概览"
+                        android:textColor="@color/black"
+                        android:textSize="40dp"
+                        android:onClick="@{()->binding.subscribeTopic()}"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline122"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="@+id/guideline21"
+                        app:layout_constraintTop_toTopOf="@+id/view3"
+                        app:layout_constraintVertical_bias="0.272" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更新时间：1 分钟之前"
+                        android:textColor="@color/small_text"
+                        app:layout_constraintEnd_toEndOf="@+id/text_home_title"
+                        app:layout_constraintStart_toStartOf="@+id/text_home_title"
+                        app:layout_constraintTop_toBottomOf="@+id/text_home_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

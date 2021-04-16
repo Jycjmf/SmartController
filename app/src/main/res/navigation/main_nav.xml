@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+        app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.smartbuildingcontroller.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_statusFragment"
+            app:destination="@id/statusFragment"
+            app:enterAnim="@anim/enter_animation" />
+        <action
+            android:id="@+id/action_loginFragment_to_fragmentRegister"
+            app:destination="@id/fragmentRegister"
+            app:enterAnim="@anim/enter_animation" />
+        <action
+            android:id="@+id/action_loginFragment_to_fragmentResetPassword"
+            app:destination="@id/fragmentResetPassword"
+            app:enterAnim="@anim/enter_animation" />
+    </fragment>
+    <fragment
+        android:id="@+id/statusFragment"
+        android:name="com.example.smartbuildingcontroller.view.StatusFragment"
+        android:label="fragment_status"
+        tools:layout="@layout/fragment_status"
+        app:startDestination="@id/action_statusFragment_to_fragmentSmokeDeatil">
+        <action
+            android:id="@+id/action_statusFragment_to_fragmentSmokeDeatil"
+            app:destination="@id/fragmentSmokeDeatil"
+            app:enterAnim="@anim/enter_animation" />
+        <action
+            android:id="@+id/action_statusFragment_to_fragmentTemperatureDetail"
+            app:destination="@id/fragmentTemperatureDetail"
+            app:enterAnim="@anim/enter_animation" />
+        <action
+            android:id="@+id/action_statusFragment_to_fragmentHumidityDetail"
+            app:destination="@id/fragmentHumidityDetail"
+            app:enterAnim="@anim/enter_animation"
+            app:popEnterAnim="@anim/enter_animation" />
+        <action
+            android:id="@+id/action_statusFragment_to_fragmentDetail"
+            app:destination="@id/fragmentDetail"
+            app:enterAnim="@anim/enter_animation" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSmokeDeatil"
+        android:name="com.example.smartbuildingcontroller.view.FragmentSmokeDeatil"
+        android:label="fragment_smoke_deatil"
+        tools:layout="@layout/fragment_smoke_deatil" >
+        <action
+            android:id="@+id/action_fragmentSmokeDeatil_to_statusFragment"
+            app:destination="@id/statusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentTemperatureDetail"
+        android:name="com.example.smartbuildingcontroller.view.FragmentTemperatureDetail"
+        android:label="fragment_temperature_detail"
+        tools:layout="@layout/fragment_temperature_detail" >
+        <action
+            android:id="@+id/action_fragmentTemperatureDetail_to_statusFragment"
+            app:destination="@id/statusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHumidityDetail"
+        android:name="com.example.smartbuildingcontroller.view.FragmentHumidityDetail"
+        android:label="fragment_humidity_detail"
+        tools:layout="@layout/fragment_humidity_detail" >
+        <action
+            android:id="@+id/action_fragmentHumidityDetail_to_statusFragment"
+            app:destination="@id/statusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="com.example.smartbuildingcontroller.view.fragmentRegister"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_fragmentRegister_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentResetPassword"
+        android:name="com.example.smartbuildingcontroller.view.FragmentResetPassword"
+        android:label="fragment_reset_password"
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_fragmentResetPassword_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetail"
+        android:name="com.example.smartbuildingcontroller.FragmentDetail"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_fragmentDetail_to_statusFragment"
+            app:destination="@id/statusFragment"
+            app:enterAnim="@anim/exit_animation" />
+    </fragment>
+</navigation>
