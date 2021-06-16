@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <TextView
+        android:id="@+id/item_hum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="26.1"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintEnd_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/item_smoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="26.1"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView28"
+        app:layout_constraintEnd_toStartOf="@+id/textView30"
+        app:layout_constraintTop_toTopOf="@+id/textView28"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" ℃"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_temp"
+        app:layout_constraintEnd_toEndOf="@+id/materialButton"
+        app:layout_constraintTop_toTopOf="@+id/item_temp" />
+
+    <TextView
+        android:id="@+id/item_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="26.1"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintEnd_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STM32 Sensor"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2021-04-17 17:00"
+        android:id="@+id/item_date"
+        app:layout_constraintBottom_toBottomOf="@+id/text_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_title" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="状态"
+        android:textColor="@color/smoke_bg"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="温度"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" %"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_hum"
+        app:layout_constraintEnd_toEndOf="@+id/materialButton"
+        app:layout_constraintTop_toTopOf="@+id/item_hum" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" ppm"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_smoke"
+        app:layout_constraintEnd_toEndOf="@+id/materialButton"
+        app:layout_constraintTop_toTopOf="@+id/item_smoke" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="湿度"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="烟雾浓度"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/normal_back"
+        android:enabled="false"
+        android:text="数值正常"
+        android:textColor="@color/smoke_bg"
+        android:textSize="8dp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

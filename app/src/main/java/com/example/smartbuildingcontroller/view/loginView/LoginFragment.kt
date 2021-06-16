@@ -16,6 +16,8 @@ import androidx.navigation.fragment.findNavController
 import com.afollestad.vvalidator.form
 import com.example.smartbuildingcontroller.R
 import com.example.smartbuildingcontroller.databinding.FragmentLoginBinding
+import com.example.smartbuildingcontroller.model.DefaultSetting
+import com.example.smartbuildingcontroller.model.HistoryDatabase
 import com.example.smartbuildingcontroller.model.LoginPost
 import com.example.smartbuildingcontroller.model.ResData
 import com.example.smartbuildingcontroller.viewModel.LoginViewModel
@@ -53,7 +55,11 @@ class LoginFragment : BaseFragment() {
         binding.textviewForget.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFragmentResetPassword())
         }
-        binding.textRegister.setOnClickListener {findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFragmentRegister())}
+        binding.textRegister.setOnClickListener {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToFragmentRegister()
+            )
+        }
         return binding.root
     }
 
@@ -62,14 +68,13 @@ class LoginFragment : BaseFragment() {
             LoginPost(binding.editTextUser.text.toString(), binding.editPassword.text.toString())
         lifecycleScope.launch {
             var res = lifecycleScope.launch {
-              try {
-                  model.pushPost(post)
-              }catch (e:Exception)
-              {
-                  Toast.makeText(requireContext(), e.message, Toast.LENGTH_SHORT).show()
-                  binding.buttonLogin.doResult(false)
-                  return@launch
-              }
+                try {
+                    model.pushPost(post)
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), e.message, Toast.LENGTH_SHORT).show()
+                    binding.buttonLogin.doResult(false)
+                    return@launch
+                }
 
             }
             res.join()
@@ -77,8 +82,15 @@ class LoginFragment : BaseFragment() {
                 if (model.response.value?.body()?.Code == 200) {
                     binding.buttonLogin.doResult(true)
                     lifecycleScope.launch {
+                        var setting = DefaultSetting()
+                        if (model.response.value?.body() != null) {
+                            setting.setValue(
+                                "userName",
+                                model.response.value?.body()!!.Msg, requireActivity()
+                            )
+                        }
                         delay(500)
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStatusFragment())
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFragmentWizard())
                     }
                 } else {
                     binding.buttonLogin.doResult(false)
@@ -91,8 +103,9 @@ class LoginFragment : BaseFragment() {
             }
         }
     }
-    fun verifyEmailData() :Boolean{
-        val myForm=form {
+
+    fun verifyEmailData(): Boolean {
+        val myForm = form {
             input(binding.editTextUser) {
                 isEmail().description("请输入正确的用户名")
             }

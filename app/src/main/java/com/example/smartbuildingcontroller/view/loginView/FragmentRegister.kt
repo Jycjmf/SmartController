@@ -16,6 +16,7 @@ import com.example.smartbuildingcontroller.model.FinishRegisterData
 import com.example.smartbuildingcontroller.model.Repository
 import com.example.smartbuildingcontroller.model.ResData
 import com.example.smartbuildingcontroller.model.VerifyCodeData
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import render.animations.Attention
 import render.animations.Render
@@ -119,6 +120,8 @@ class fragmentRegister : BaseFragment() {
                     {
                         Toast.makeText(requireContext(), "注册成功", Toast.LENGTH_SHORT).show()
                         binding.buttonRegister.doResult(true)
+                        delay(500)
+                        findNavController().navigate(fragmentRegisterDirections.actionFragmentRegisterToLoginFragment())
                         return@launch
                     }
                     else if(res?.body()?.Code==403)

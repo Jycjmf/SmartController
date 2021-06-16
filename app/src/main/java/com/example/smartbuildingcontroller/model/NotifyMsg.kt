@@ -1,16 +1,20 @@
 package com.example.smartbuildingcontroller.model
 
 import android.app.Application
-import android.text.TextUtils
+import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LifecycleCoroutineScope
+import com.aliyun.alink.h2.connection.ConnectionStatus
 import com.aliyun.alink.linkkit.api.LinkKit
-import com.aliyun.alink.linksdk.cmp.api.ConnectSDK
 import com.aliyun.alink.linksdk.cmp.core.base.AMessage
 import com.aliyun.alink.linksdk.cmp.core.base.ConnectState
 import com.aliyun.alink.linksdk.cmp.core.listener.IConnectNotifyListener
 import com.aliyun.alink.linksdk.tools.ALog
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,8 +25,8 @@ class NotifyMsg(private val context: Application) : IConnectNotifyListener {
     var msgSmoke: String = "null"
     var msgHumidity: String = "null"
     var msgId: String = "null"
-    var msgDate:String="null"
-
+    var msgDate: String = "null"
+    var connectionStatus: String = "在线"
     override fun onNotify(connectId: String, topic: String, aMessage: AMessage) {
         val data = String((aMessage.data as ByteArray)!!)
         ALog.d(
@@ -32,12 +36,24 @@ class NotifyMsg(private val context: Application) : IConnectNotifyListener {
         if (topic.indexOf("/a1gwqeuEjEv/Controller/user/Get") != -1) {
             var res = Gson().fromJson(data, Payload::class.java)
             msgType = res.Type
-            msgTemperature = res.T
-            msgSmoke = res.S
-            msgHumidity = res.H
+            if (res.T.isNullOrBlank()) {
+                msgTemperature = "N/A"
+            } else {
+                msgTemperature = res.T
+            }
+            if (res.S.isNullOrBlank()) {
+                msgSmoke = "N/A"
+            } else {
+                msgSmoke = res.S
+            }
+            if (res.H.isNullOrBlank()) {
+                msgHumidity = "N/A"
+            } else {
+                msgHumidity = res.H
+            }
             msgId = res.UnitId
             val date = Calendar.getInstance().time
-            msgDate = SimpleDateFormat("今天 hh:mm").format(date)
+            msgDate = SimpleDateFormat("yyyy-MM-dd hh:mm").format(date)
         }
     }
 
@@ -46,7 +62,17 @@ class NotifyMsg(private val context: Application) : IConnectNotifyListener {
     }
 
     override fun onConnectStateChange(p0: String?, p1: ConnectState?) {
-        LinkKit.getInstance().registerOnPushListener(NotifyMsg(context));
+        if (p1 == ConnectState.CONNECTED)
+            connectionStatus = "在线"
+        else if (p1 == ConnectState.DISCONNECTED)
+            connectionStatus = "离线"
+        else if (p1 == ConnectState.CONNECTFAIL)
+            connectionStatus = "连接失败"
+        else if (p1 == ConnectState.CONNECTING)
+            connectionStatus = "连接中"
+        else
+            connectionStatus = "Unknown"
+        Log.d("TAG", "onConnectStateChange: $connectionStatus")
     }
 
 }
